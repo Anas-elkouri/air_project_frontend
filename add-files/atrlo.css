@@ -1,0 +1,181 @@
+/* === Reset === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+/* === Variables === */
+:root {
+--primary: #4f46e5;
+--secondary: #64748b;
+--background: #f5f5f5;
+--text: #111;
+--radius: 8px;
+}
+
+/* Intro Screen */
+#intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #111; /* لون الخلفية */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#intro .icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: rotate 2s linear infinite;
+}
+
+#intro h1 {
+  font-size: 2rem;
+}
+
+/* دوران أيقونة */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === Body === */
+html, body {
+height: 100%;
+font-family: "Poppins", sans-serif;
+color: var(--text);
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background: var(--background);
+}
+
+/* === Fullscreen Background === */
+.img {
+width: 100%;
+height: 100vh;
+background-image: url("../image/AiraloReviewFI-1.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+position: relative;
+}
+
+/* Overlay شفاف فوق الصورة */
+.img::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.4); /* شفافية */
+}
+
+/* === Text فوق الخلفية === */
+#all {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: white;
+z-index: 1;
+}
+
+#all a {
+display: inline-block;
+text-decoration: none;
+padding: 12px 24px;
+margin-top: 16px;
+border-radius: var(--radius);
+background: var(--primary);
+color: white;
+font-weight: bold;
+transition: 0.3s;
+}
+
+#all a:hover {
+opacity: 0.8;
+}
+
+#all h1 {
+font-size: 2.5rem;
+margin: 20px 0;
+}
+
+/* === About sections === */
+#about {
+padding: 60px 20px;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+#about h2, #about h1 {
+font-size: 2rem;
+margin-bottom: 20px;
+text-align: center;
+}
+
+#about ul {
+list-style: disc;
+padding-left: 40px;
+margin-bottom: 30px;
+}
+
+#about p {
+text-align: center;
+font-size: 1.1rem;
+line-height: 1.8;
+margin-bottom: 20px;
+}
+
+#about img {
+display: block;
+max-width: 100%;
+margin: 0 auto;
+}
+
+/* === Footer === */
+footer {
+background: #111;
+color: white;
+padding: 40px 20px;
+text-align: center;
+}
+
+footer #footer p {
+margin-bottom: 20px;
+}
+
+footer #social a img {
+width: 40px;
+margin: 0 10px;
+vertical-align: middle;
+}
+
+footer a {
+display: inline-block;
+margin-top: 16px;
+padding: 12px 24px;
+border-radius: var(--radius);
+background: var(--primary);
+color: white;
+text-decoration: none;
+font-weight: bold;
+transition: 0.3s;
+}
+
+footer a:hover {
+opacity: 0.8;
+}
