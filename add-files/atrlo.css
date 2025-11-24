@@ -15,40 +15,6 @@
 --radius: 8px;
 }
 
-/* Intro Screen */
-#intro {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #111; /* لون الخلفية */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-
-#intro .icon {
-  font-size: 80px;
-  margin-bottom: 20px;
-  animation: rotate 2s linear infinite;
-}
-
-#intro h1 {
-  font-size: 2rem;
-}
-
-/* دوران أيقونة */
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* === Body === */
 html, body {
 height: 100%;
@@ -58,6 +24,37 @@ line-height: 1.6;
 margin: 0;
 padding: 0;
 background: var(--background);
+}
+
+/* === Intro Screen === */
+#intro {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background: #111;
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+opacity: 1;
+transition: opacity 1s ease;
+}
+#intro .icon {
+font-size: 60px;
+margin-bottom: 15px;
+animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+#intro h1 {
+font-size: 1.8rem;
+text-align: center;
 }
 
 /* === Fullscreen Background === */
@@ -70,8 +67,6 @@ background-position: center;
 background-repeat: no-repeat;
 position: relative;
 }
-
-/* Overlay شفاف فوق الصورة */
 .img::after {
 content: "";
 position: absolute;
@@ -79,10 +74,10 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background: rgba(0, 0, 0, 0.4); /* شفافية */
+background: rgba(0,0,0,0.4);
 }
 
-/* === Text فوق الخلفية === */
+/* === Hero Text === */
 #all {
 position: absolute;
 top: 50%;
@@ -91,55 +86,50 @@ transform: translate(-50%, -50%);
 text-align: center;
 color: white;
 z-index: 1;
+padding: 0 10px;
 }
-
 #all a {
 display: inline-block;
 text-decoration: none;
-padding: 12px 24px;
-margin-top: 16px;
+padding: 12px 20px;
+margin-top: 12px;
 border-radius: var(--radius);
 background: var(--primary);
 color: white;
 font-weight: bold;
 transition: 0.3s;
 }
-
-#all a:hover {
-opacity: 0.8;
-}
-
+#all a:hover { opacity: 0.8; }
 #all h1 {
-font-size: 2.5rem;
-margin: 20px 0;
+font-size: 2rem;
+margin: 15px 0;
 }
 
-/* === About sections === */
-#about {
-padding: 60px 20px;
+/* === About Sections === */
+#about, #what-is {
+padding: 40px 15px;
 max-width: 1000px;
 margin: 0 auto;
+opacity: 0;
+transform: translateY(50px);
+transition: all 0.8s ease;
 }
-
-#about h2, #about h1 {
-font-size: 2rem;
-margin-bottom: 20px;
+#about h2, #what-is h1 {
+font-size: 1.5rem;
+margin-bottom: 15px;
 text-align: center;
 }
-
 #about ul {
 list-style: disc;
-padding-left: 40px;
-margin-bottom: 30px;
-}
-
-#about p {
-text-align: center;
-font-size: 1.1rem;
-line-height: 1.8;
+padding-left: 30px;
 margin-bottom: 20px;
 }
-
+#about p {
+text-align: center;
+font-size: 1rem;
+line-height: 1.6;
+margin-bottom: 20px;
+}
 #about img {
 display: block;
 max-width: 100%;
@@ -150,24 +140,19 @@ margin: 0 auto;
 footer {
 background: #111;
 color: white;
-padding: 40px 20px;
+padding: 30px 15px;
 text-align: center;
 }
-
-footer #footer p {
-margin-bottom: 20px;
-}
-
+footer #footer p { margin-bottom: 15px; }
 footer #social a img {
-width: 40px;
-margin: 0 10px;
+width: 35px;
+margin: 0 8px;
 vertical-align: middle;
 }
-
 footer a {
 display: inline-block;
-margin-top: 16px;
-padding: 12px 24px;
+margin-top: 12px;
+padding: 10px 18px;
 border-radius: var(--radius);
 background: var(--primary);
 color: white;
@@ -175,7 +160,22 @@ text-decoration: none;
 font-weight: bold;
 transition: 0.3s;
 }
+footer a:hover { opacity: 0.8; }
 
-footer a:hover {
-opacity: 0.8;
+/* === Media Queries for Mobile === */
+@media (max-width: 768px){
+#all h1 { font-size: 1.5rem; }
+#all a { padding: 10px 16px; font-size: 0.9rem; }
+#intro h1 { font-size: 1.5rem; }
+#intro .icon { font-size: 50px; }
+#about h2, #what-is h1 { font-size: 1.3rem; }
+#about p, #about li { font-size: 0.95rem; }
+}
+@media (max-width: 480px){
+#all h1 { font-size: 1.2rem; }
+#all a { padding: 8px 12px; font-size: 0.85rem; }
+#intro h1 { font-size: 1.2rem; }
+#intro .icon { font-size: 40px; }
+#about h2, #what-is h1 { font-size: 1.1rem; }
+#about p, #about li { font-size: 0.9rem; }
 }
